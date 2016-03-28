@@ -31,7 +31,7 @@ namespace Gnemes\Summasolutions\examen;
 use Gnemes\Summasolutions\examen\Empleado;
 
 /**
- * Programador Class
+ * Diseñador Class
  *
  * @category  ExamenTecnico
  * @package   Summasolutions
@@ -40,36 +40,36 @@ use Gnemes\Summasolutions\examen\Empleado;
  * @license   GNU GPL v3
  * @link      https://github.com/gnemes/summasolutions
  */
-class Programador extends Empleado
+class Disenador extends Empleado
 {
-    private $lenguaje = "";
+    private $tipo = "";
     
-    private $lenguajesDisponibles = array("PHP", "Net", "Python");
+    private $tiposDisponibles = array("Grafico", "Web");
     
     /**
-     * Getter lenguaje
+     * Getter tipo
      * 
      * @return string
      */
-    public function getLenguaje()
+    public function getTipo()
     {
-        return $this->lenguaje;
+        return $this->tipo;
     }
     
     /**
-     * Setter lenguaje
+     * Setter tipo
      * 
-     * @param string $lenguaje Lenguaje
+     * @param string $tipo Tipo de diseñador
      * 
-     * @return \Gnemes\Summasolutions\examen\Programador|boolean
+     * @return \Gnemes\Summasolutions\examen\Disenador|boolean
      */
-    public function setLenguaje($lenguaje)
+    public function setTipo($tipo)
     {
-        if (!in_array($lenguaje, $this->lenguajesDisponibles)) {
+        if (!in_array($tipo, $this->tiposDisponibles)) {
             return false;
         }
         
-        $this->lenguaje = $lenguaje;
+        $this->tipo = $tipo;
             
         return $this;
     }

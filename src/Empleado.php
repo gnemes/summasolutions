@@ -66,7 +66,7 @@ abstract class Empleado
      *
      * @var integer
      */
-    private $edad;
+    private $edad = 0;
     
     /***************** GETTERS AND SETTERS ********************/
     
