@@ -109,8 +109,24 @@ class EmpleadosCollection
         }
     }
     
+    /**
+     * Obtienen el promedio de edad de los empleados
+     * 
+     * @return integer
+     */
     public function promedioEdades()
     {
+        $promedio = 0;
         
+        $cantidadEmpleados = count($this->empleados);
+        if ($cantidadEmpleados > 0) {
+            $suma = 0;
+            foreach ($this->empleados as $empleado) {
+                $suma += $empleado->getEdad();
+            }
+            $promedio = $suma / $cantidadEmpleados;
+        }
+        
+        return $promedio;
     }
 }

@@ -32,7 +32,7 @@ $disenador->setId(2)
           ->setApellido("Muras");
 
 try {
-    $disenador->setEdad(32);
+    $disenador->setEdad(30);
 } catch (Exception $ex) {
     echo $ex->getMessage()."\n";
 }                  
