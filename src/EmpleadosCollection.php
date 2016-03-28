@@ -95,11 +95,13 @@ class EmpleadosCollection
                 echo "Edad: ".$empleado->getEdad()."\n";
                 
                 if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Programador')) {
+                    echo "Area: Programador\n";
                     echo "Lenguaje: ".$empleado->getLenguaje()."\n";
                 } else if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Disenador')) {
+                    echo "Area: Diseñador\n";
                     echo "Tipo: ".$empleado->getTipo()."\n";
                 } else {
-                    echo "Empleado desconocido.\n";
+                    echo "Area: desconocida.\n";
                 }
             }
         } else {
