@@ -96,11 +96,11 @@ class EmpleadosCollection
                 echo "Clase: ".get_class($empleado)."\n";
                 
                 switch (get_class($empleado)) {
-                    case "Programador":
+                    case "Gnemes\Summasolutions\examen\Programador":
                         echo "Lenguaje: ".$empleado->getLenguaje()."\n";
 
                         break;
-                    case "Disenador":
+                    case "Gnemes\Summasolutions\examen\Disenador":
                         echo "Tipo: ".$empleado->getTipo()."\n";
                     default:
                         echo "Empleado desconocido.\n";
