@@ -156,6 +156,7 @@ class Empresa
     {
         $promedio = $this->empleados->promedioEdades();
         echo "El promedio de edad es: ".$promedio.PHP_EOL;
+        echo "-----------------------------".PHP_EOL;
     }
     
     /**

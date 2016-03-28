@@ -65,6 +65,10 @@ $empresa->listarEmpleados();
 
 $empresa->promedioEdades();
 
-$empresa->buscarEmpleado(2);
+try {
+    $empresa->buscarEmpleado(2);
+} catch (Exception $ex) {
+    echo $ex->getMessage()."\n";
+}
 
 echo "Empresa :: ".var_export($empresa,true)."\n";
