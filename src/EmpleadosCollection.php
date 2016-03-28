@@ -93,18 +93,13 @@ class EmpleadosCollection
                 echo "Nombre: ".$empleado->getNombre()."\n";
                 echo "Apellido: ".$empleado->getApellido()."\n";
                 echo "Edad: ".$empleado->getEdad()."\n";
-                echo "Clase: ".get_class($empleado)."\n";
                 
-                switch (get_class($empleado)) {
-                    case "Gnemes\Summasolutions\examen\Programador":
-                        echo "Lenguaje: ".$empleado->getLenguaje()."\n";
-
-                        break;
-                    case "Gnemes\Summasolutions\examen\Disenador":
-                        echo "Tipo: ".$empleado->getTipo()."\n";
-                    default:
-                        echo "Empleado desconocido.\n";
-                        break;
+                if ($empleado instanceof Gnemes\Summasolutions\examen\Programador) {
+                    echo "Lenguaje: ".$empleado->getLenguaje()."\n";
+                } else if ($empleado instanceof Gnemes\Summasolutions\examen\Disenador) {
+                    echo "Tipo: ".$empleado->getTipo()."\n";
+                } else {
+                    echo "Empleado desconocido.\n";
                 }
             }
         } else {
