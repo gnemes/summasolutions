@@ -65,4 +65,6 @@ $empresa->listarEmpleados();
 
 $empresa->promedioEdades();
 
+$empresa->buscarEmpleado(2);
+
 echo "Empresa :: ".var_export($empresa,true)."\n";

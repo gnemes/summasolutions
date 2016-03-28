@@ -157,4 +157,16 @@ class Empresa
         $promedio = $this->empleados->promedioEdades();
         echo "El promedio de edad es: ".$promedio.PHP_EOL;
     }
+    
+    /**
+     * Muestra los datos de un empleado por ID
+     * 
+     * @param integer $id Empleado ID
+     * 
+     * @return void
+     */
+    public function buscarEmpleado($id)
+    {
+        $this->empleados->getById($id);
+    }
 }
