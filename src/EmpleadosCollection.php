@@ -94,9 +94,9 @@ class EmpleadosCollection
                 echo "Apellido: ".$empleado->getApellido()."\n";
                 echo "Edad: ".$empleado->getEdad()."\n";
                 
-                if ($empleado instanceof Gnemes\Summasolutions\examen\Programador) {
+                if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Programador')) {
                     echo "Lenguaje: ".$empleado->getLenguaje()."\n";
-                } else if ($empleado instanceof Gnemes\Summasolutions\examen\Disenador) {
+                } else if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Disenador')) {
                     echo "Tipo: ".$empleado->getTipo()."\n";
                 } else {
                     echo "Empleado desconocido.\n";
