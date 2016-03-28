@@ -66,7 +66,7 @@ class Disenador extends Empleado
     public function setTipo($tipo)
     {
         if (!in_array($tipo, $this->tiposDisponibles)) {
-            return false;
+            throw new \Exception("Tipo de diseñador invalido");
         }
         
         $this->tipo = $tipo;

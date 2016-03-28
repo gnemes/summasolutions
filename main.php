@@ -20,8 +20,13 @@ $disenador = new Disenador();
 $disenador->setId(2)
           ->setNombre("Marina")
           ->setApellido("Muras")
-          ->setEdad(32)
-          ->setTipo("Web");
+          ->setEdad(32);
+
+try {
+    $disenador->setTipo("Invalid");
+} catch (Exception $ex) {
+    echo $ex->getMessage()."\n";
+}
 
 // Creo una empresa
 $empresa = new Empresa();
