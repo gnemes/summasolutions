@@ -63,4 +63,6 @@ try {
 
 $empresa->listarEmpleados();
 
+$empresa->promedioEdades();
+
 echo "Empresa :: ".var_export($empresa,true)."\n";

@@ -146,4 +146,15 @@ class Empresa
     {
         $this->empleados->listar();
     }
+    
+    /**
+     * Imprime el promedio de edad
+     * 
+     * @return void
+     */
+    public function promedioEdades()
+    {
+        $promedio = $this->empleados->promedioEdades();
+        echo "El promedio de edad es: ".$promedio."\n";
+    }
 }
