@@ -34,4 +34,4 @@ En Empresa, tengo que poder:
 * buscar por Id y obtener un Empleado
 * obtener el promedio de edad de los empleados
 
-Nota: Demostrar conocimientos en el manejo de objetos, getters, setters, listados y herencia. 
+**Nota:** Demostrar conocimientos en el manejo de objetos, getters, setters, listados y herencia. 
