@@ -26,7 +26,7 @@
  * @link      https://github.com/gnemes/summasolutions
  */
 
-namespace Gnemes\Summasolutions\examen\EmpleadosCollection;
+namespace Gnemes\Summasolutions\examen\Collection;
 
 /**
  * Empleado collection Class
@@ -38,7 +38,7 @@ namespace Gnemes\Summasolutions\examen\EmpleadosCollection;
  * @license   GNU GPL v3
  * @link      https://github.com/gnemes/summasolutions
  */
-class EmpleadosCollection
+class Collection
 {
     /**
      * Lista de empleados
@@ -47,7 +47,7 @@ class EmpleadosCollection
      */
     private $empleados = array();
     
-    public function add(Gnemes\Summasolutions\examen\Empleado $empleado)
+    public function add(Empleado $empleado)
     {
         if (isset($this->empleados[$empleado->getId()])) {
             throw new \Exception("ID Empleado ya existe en esta empresa");
@@ -56,7 +56,7 @@ class EmpleadosCollection
         }        
     }
     
-    public function remove(Gnemes\Summasolutions\examen\Empleado $empleado)
+    public function remove(Empleado $empleado)
     {
         if (!isset($this->empleados[$empleado->getId()])) {
             throw new \Exception("Empleado no existe en esta empresa");

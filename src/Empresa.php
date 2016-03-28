@@ -68,7 +68,7 @@ class Empresa
      */
     public function __construct()
     {
-        $this->empleados = new Gnemes\Summasolutions\examen\EmpleadosCollection();
+        $this->empleados = new Collection();
     }
     
     /***************** GETTERS AND SETTERS ********************/
@@ -128,7 +128,7 @@ class Empresa
      * 
      * @return \Gnemes\Summasolutions\examen\Empleado
      */
-    public function addEmpleado(Gnemes\Summasolutions\examen\Empleado $empleado)
+    public function addEmpleado(Empleado $empleado)
     {
         $this->empleados->add($empleado);
         
