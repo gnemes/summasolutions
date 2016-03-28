@@ -47,8 +47,18 @@ try {
 $empresa = new Empresa();
 
 $empresa->setId(1)
-        ->setNombre("Summa Solutions")
-        ->addEmpleado($programador)
-        ->addEmpleado($disenador);
+        ->setNombre("Summa Solutions");
+
+try {
+    $empresa->addEmpleado($programador);
+} catch (Exception $ex) {
+    echo $ex->getMessage()."\n";
+}
+
+try {
+    $empresa->addEmpleado($disenador);
+} catch (Exception $ex) {
+    echo $ex->getMessage()."\n";
+}
 
 echo "Empresa :: ".var_export($empresa,true)."\n";

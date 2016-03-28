@@ -28,6 +28,9 @@
 
 namespace Gnemes\Summasolutions\examen;
 
+use Gnemes\Summasolutions\examen\Empleado;
+use Gnemes\Summasolutions\examen\EmpleadosCollection;
+
 /**
  * Empresa Class
  *
@@ -57,9 +60,19 @@ class Empresa
     /**
      * Lista de empleados
      *
-     * @var array
+     * @var Gnemes\Summasolutions\examen\EmpleadosCollection
      */
-    private $empleados = array();
+    private $empleados = null;
+    
+    /**
+     * Constructor
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->empleados = new EmpleadosCollection();
+    }
     
     /***************** GETTERS AND SETTERS ********************/
     
@@ -120,7 +133,7 @@ class Empresa
      */
     public function addEmpleado(Empleado $empleado)
     {
-        array_push($this->empleados, $empleado);
+        $this->empleados->add($empleado);
         
         return $this;
     }
