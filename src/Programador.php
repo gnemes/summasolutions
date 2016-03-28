@@ -66,7 +66,7 @@ class Programador extends Empleado
     public function setLenguaje($lenguaje)
     {
         if (!in_array($lenguaje, $this->lenguajesDisponibles)) {
-            return false;
+            throw new \Exception("Lenguaje del programador invalido");
         }
         
         $this->lenguaje = $lenguaje;

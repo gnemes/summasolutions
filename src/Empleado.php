@@ -162,7 +162,7 @@ abstract class Empleado
     public function setEdad($edad)
     {
         if (!is_int($edad) || $edad <= 0) {
-            return false;
+            throw new \Exception("Edad invalida");
         }
         
         $this->edad = $edad;
