@@ -103,6 +103,7 @@ class EmpleadosCollection
                 } else {
                     echo "Area: desconocida.\n";
                 }
+                echo "-----------------------------\n";
             }
         } else {
             echo "No hay empleados en la empresa.\n";
