@@ -1,7 +1,7 @@
 # Summa Solutions
 
 Ejercicio técnico postulantes
-=============================
+-----------------------------
 
 Ejercicio:
  
