@@ -47,6 +47,14 @@ class EmpleadosCollection
      */
     private $empleados = array();
     
+    /**
+     * Agrega un empleado a la empresa
+     * 
+     * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a agregar a la empresa
+     * @throws \Exception
+     * 
+     * @return void
+     */
     public function add(Empleado $empleado)
     {
         if (isset($this->empleados[$empleado->getId()])) {
@@ -56,6 +64,14 @@ class EmpleadosCollection
         }        
     }
     
+    /**
+     * Quita un empleado de la empresa
+     * 
+     * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a quitar
+     * @throws \Exception
+     * 
+     * @return void
+     */
     public function remove(Empleado $empleado)
     {
         if (!isset($this->empleados[$empleado->getId()])) {
@@ -65,9 +81,34 @@ class EmpleadosCollection
         }
     }
     
+    /**
+     * Lista los empleados
+     * 
+     * @return void
+     */
     public function listar()
     {
-        
+        if (count($this->empleados) > 0) {
+            foreach ($this->empleados as $empleado) {
+                echo "Nombre: ".$empleado->getNombre()."\n";
+                echo "Apellido: ".$empleado->getNombre()."\n";
+                echo "Edad: ".$empleado->getNombre()."\n";
+                
+                switch (get_class($empleado)) {
+                    case "Programador":
+                        echo "Lenguaje: ".$empleado->getLenguaje()."\n";
+
+                        break;
+                    case "Disenador":
+                        echo "Tipo: ".$empleado->getTipo()."\n";
+                    default:
+                        echo "Empleado desconocido.\n";
+                        break;
+                }
+            }
+        } else {
+            echo "No hay empleados en la empresa.\n";
+        }
     }
     
     public function promedioEdades()

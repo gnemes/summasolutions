@@ -61,4 +61,6 @@ try {
     echo $ex->getMessage()."\n";
 }
 
+$empresa->listarEmpleados();
+
 echo "Empresa :: ".var_export($empresa,true)."\n";

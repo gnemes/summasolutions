@@ -136,4 +136,14 @@ class Empresa
         
         return $this;
     }
+    
+    /**
+     * Lista los empleados de la empresa
+     * 
+     * @return void
+     */
+    public function listarEmpleados()
+    {
+        $this->empleados->listar();
+    }
 }
