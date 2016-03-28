@@ -90,23 +90,23 @@ class EmpleadosCollection
     {
         if (count($this->empleados) > 0) {
             foreach ($this->empleados as $empleado) {
-                echo "Nombre: ".$empleado->getNombre()."\n";
-                echo "Apellido: ".$empleado->getApellido()."\n";
-                echo "Edad: ".$empleado->getEdad()."\n";
+                echo "Nombre: ".$empleado->getNombre().PHP_EOL;
+                echo "Apellido: ".$empleado->getApellido().PHP_EOL;
+                echo "Edad: ".$empleado->getEdad().PHP_EOL;
                 
                 if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Programador')) {
-                    echo "Area: Programador\n";
-                    echo "Lenguaje: ".$empleado->getLenguaje()."\n";
+                    echo "Area: Programador".PHP_EOL;
+                    echo "Lenguaje: ".$empleado->getLenguaje().PHP_EOL;
                 } else if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Disenador')) {
-                    echo "Area: Diseñador\n";
-                    echo "Tipo: ".$empleado->getTipo()."\n";
+                    echo "Area: Diseñador".PHP_EOL;
+                    echo "Tipo: ".$empleado->getTipo().PHP_EOL;
                 } else {
-                    echo "Area: desconocida.\n";
+                    echo "Area: desconocida.".PHP_EOL;
                 }
-                echo "-----------------------------\n";
+                echo "-----------------------------".PHP_EOL;
             }
         } else {
-            echo "No hay empleados en la empresa.\n";
+            echo "No hay empleados en la empresa.".PHP_EOL;
         }
     }
     

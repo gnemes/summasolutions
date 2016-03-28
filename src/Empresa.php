@@ -155,6 +155,6 @@ class Empresa
     public function promedioEdades()
     {
         $promedio = $this->empleados->promedioEdades();
-        echo "El promedio de edad es: ".$promedio."\n";
+        echo "El promedio de edad es: ".$promedio.PHP_EOL;
     }
 }
