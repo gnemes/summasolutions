@@ -122,6 +122,6 @@ class Empresa
     {
         array_push($this->empleados, $empleado);
         
-        return $empleado;
+        return $this;
     }
 }
