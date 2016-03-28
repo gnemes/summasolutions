@@ -28,9 +28,6 @@
 
 namespace Gnemes\Summasolutions\examen;
 
-use Gnemes\Summasolutions\examen\Empleado;
-use Gnemes\Summasolutions\examen\EmpleadosCollection;
-
 /**
  * Empresa Class
  *
@@ -71,7 +68,7 @@ class Empresa
      */
     public function __construct()
     {
-        $this->empleados = new EmpleadosCollection();
+        $this->empleados = new Gnemes\Summasolutions\examen\EmpleadosCollection();
     }
     
     /***************** GETTERS AND SETTERS ********************/
@@ -131,7 +128,7 @@ class Empresa
      * 
      * @return \Gnemes\Summasolutions\examen\Empleado
      */
-    public function addEmpleado(Empleado $empleado)
+    public function addEmpleado(Gnemes\Summasolutions\examen\Empleado $empleado)
     {
         $this->empleados->add($empleado);
         
