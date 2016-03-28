@@ -26,7 +26,7 @@
  * @link      https://github.com/gnemes/summasolutions
  */
 
-namespace Gnemes\Summasolutions\examen\Collection;
+namespace Gnemes\Summasolutions\examen;
 
 /**
  * Empleado collection Class
@@ -38,7 +38,7 @@ namespace Gnemes\Summasolutions\examen\Collection;
  * @license   GNU GPL v3
  * @link      https://github.com/gnemes/summasolutions
  */
-class Collection
+class EmpleadosCollection
 {
     /**
      * Lista de empleados

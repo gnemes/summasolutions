@@ -28,6 +28,8 @@
 
 namespace Gnemes\Summasolutions\examen;
 
+use Gnemes\Summasolutions\examen\EmpleadosCollection;
+
 /**
  * Empresa Class
  *
@@ -68,7 +70,7 @@ class Empresa
      */
     public function __construct()
     {
-        $this->empleados = new Collection();
+        $this->empleados = new EmpleadosCollection();
     }
     
     /***************** GETTERS AND SETTERS ********************/
