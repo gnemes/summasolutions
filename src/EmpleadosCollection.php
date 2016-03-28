@@ -91,8 +91,9 @@ class EmpleadosCollection
         if (count($this->empleados) > 0) {
             foreach ($this->empleados as $empleado) {
                 echo "Nombre: ".$empleado->getNombre()."\n";
-                echo "Apellido: ".$empleado->getNombre()."\n";
-                echo "Edad: ".$empleado->getNombre()."\n";
+                echo "Apellido: ".$empleado->getApellido()."\n";
+                echo "Edad: ".$empleado->getEdad()."\n";
+                echo "Clase: ".get_class($empleado)."\n";
                 
                 switch (get_class($empleado)) {
                     case "Programador":
