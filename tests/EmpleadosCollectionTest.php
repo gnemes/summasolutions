@@ -54,4 +54,20 @@ class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
             echo $ex->getMessage()."\n";
         }
     }
+    
+    public function testAddInvalidObjectToEmpleadosCollection()
+    {
+        $collection = new EmpleadosCollection();
+
+        // Creo un programador
+        $invalidObj = new stdClass();
+
+        $this->setExpectedException('\InvalidArgumentException');
+        
+        try {
+            $empleado = $collection->add($invalidObj);
+        } catch (Exception $ex) {
+            echo $ex->getMessage()."\n";
+        }  
+    }
 }
