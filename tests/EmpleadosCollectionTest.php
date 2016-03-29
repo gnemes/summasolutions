@@ -208,4 +208,68 @@ class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
             echo $ex->getMessage()."\n";
         }
     }
+    
+    public function testListEmptyCollection()
+    {
+        $collection = new EmpleadosCollection();
+
+        $this->setExpectedException('Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionEmptyException');
+        
+        try {
+            $empleado = $collection->getAll();
+        } catch (Exception $ex) {
+            echo $ex->getMessage()."\n";
+        }
+    }
+    
+    public function testGetAllCollection()
+    {
+        $collection = new EmpleadosCollection();
+
+        $reference = array();
+        
+        // Creo un programador
+        $programador1 = new Programador();
+
+        $programador1->setId(1)
+                     ->setNombre("Prueba")
+                     ->setApellido("Primera")
+                     ->setEdad(32);
+        
+        $empleado1 = $collection->add($programador1);
+        
+        $this->assertEquals($programador1, $empleado1);
+        
+        $reference[1] = $programador1;
+        
+        // Creo un programador
+        $programador2 = new Programador();
+
+        $programador2->setId(2)
+                     ->setNombre("Prueba")
+                     ->setApellido("Segunda")
+                     ->setEdad(34);
+        
+        $empleado2 = $collection->add($programador2);
+        
+        $this->assertEquals($programador2, $empleado2);
+        
+        $reference[2] = $programador2;
+        
+        // Creo un programador
+        $programador3 = new Programador();
+
+        $programador3->setId(3)
+                     ->setNombre("Prueba")
+                     ->setApellido("Tercera")
+                     ->setEdad(36);
+        
+        $empleado3 = $collection->add($programador3);
+        
+        $this->assertEquals($programador3, $empleado3);
+        
+        $reference[3] = $programador3;
+        
+        $this->assertEquals($reference, $collection->getAll());
+    }
 }

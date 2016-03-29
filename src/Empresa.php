@@ -170,7 +170,11 @@ class Empresa
      */
     public function listarEmpleados()
     {
-        $this->empleados->listar();
+        $empleados = $this->empleados->getAll();
+        
+        foreach ($empleados as $empleado) {
+            $this->printEmpleado($empleado);
+        }
     }
     
     /**

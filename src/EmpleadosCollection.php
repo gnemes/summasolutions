@@ -31,6 +31,7 @@ namespace Gnemes\Summasolutions\examen;
 use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionAddException;
 use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionRemoveException;
 use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionEmpleadoNotExistsException;
+use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionEmptyException;
 
 /**
  * Empleado collection Class
@@ -50,32 +51,6 @@ class EmpleadosCollection
      * @var array
      */
     private $empleados = array();
-    
-    /**
-     * Imprime los datos de un empleado
-     * Esta funcion deberia cambiarse para que haga lo que se desee
-     * 
-     * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a mostrar
-     * 
-     * @return void
-     */
-    private function printEmpleado(Empleado $empleado)
-    {
-        echo "Nombre: ".$empleado->getNombre().PHP_EOL;
-        echo "Apellido: ".$empleado->getApellido().PHP_EOL;
-        echo "Edad: ".$empleado->getEdad().PHP_EOL;
-
-        if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Programador')) {
-            echo "Area: Programador".PHP_EOL;
-            echo "Lenguaje: ".$empleado->getLenguaje().PHP_EOL;
-        } else if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Disenador')) {
-            echo "Area: Diseñador".PHP_EOL;
-            echo "Tipo: ".$empleado->getTipo().PHP_EOL;
-        } else {
-            echo "Area: desconocida.".PHP_EOL;
-        }
-        echo "-----------------------------".PHP_EOL;        
-    }
     
     /**
      * Agrega un empleado a la empresa
@@ -121,15 +96,13 @@ class EmpleadosCollection
      * 
      * @return void
      */
-    public function listar()
+    public function getAll()
     {
-        if (count($this->empleados) > 0) {
-            foreach ($this->empleados as $empleado) {
-                $this->printEmpleado($empleado);
-            }
-        } else {
-            echo "No hay empleados en la empresa.".PHP_EOL;
+        if (count($this->empleados) == 0) {
+            throw new EmpleadosCollectionEmptyException("Empleado no existe en esta empresa");
         }
+        
+        return $this->empleados;
     }
     
     /**
