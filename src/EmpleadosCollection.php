@@ -28,6 +28,8 @@
 
 namespace Gnemes\Summasolutions\examen;
 
+use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionAddException;
+
 /**
  * Empleado collection Class
  *
@@ -84,7 +86,7 @@ class EmpleadosCollection
     public function add(Empleado $empleado)
     {
         if (isset($this->empleados[$empleado->getId()])) {
-            throw new \Exception("ID Empleado ya existe en esta empresa");
+            throw new EmpleadosCollectionAddException("ID Empleado ya existe en esta empresa");
         }
         
         $this->empleados[$empleado->getId()] = $empleado;

@@ -7,7 +7,7 @@ use Gnemes\Summasolutions\examen\Programador;
 
 class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
 {
-    public function testInvalidMoreOperationsQuantity()
+    public function testAddProgramerToEmpleadosCollection()
     {
         $collection = new EmpleadosCollection();
 
@@ -18,6 +18,14 @@ class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
                     ->setNombre("German")
                     ->setApellido("Nemes");
         
-        $this->assertEquals($programador, $collection->add($programador));
+        try {
+            $empleado = $collection->add($programador);
+        } catch (Exception $ex) {
+            echo $ex->getMessage()."\n";
+        }  
+        
+        $this->assertEquals($programador, $empleado);
     }
+    
+    
 }
