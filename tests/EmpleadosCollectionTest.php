@@ -4,6 +4,7 @@ namespace Gnemes\Summasolutions\tests;
 
 use Gnemes\Summasolutions\examen\EmpleadosCollection;
 use Gnemes\Summasolutions\examen\Programador;
+use Gnemes\Summasolutions\examen\Disenador;
 
 class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
 {
@@ -269,6 +270,71 @@ class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($programador3, $empleado3);
         
         $reference[3] = $programador3;
+        
+        $this->assertEquals($reference, $collection->getAll());
+    }
+    
+    public function testMixedCollection()
+    {
+        $collection = new EmpleadosCollection();
+
+        $reference = array();
+        
+        // Creo un programador
+        $programador1 = new Programador();
+
+        $programador1->setId(1)
+                     ->setNombre("Prueba")
+                     ->setApellido("Primera")
+                     ->setEdad(32);
+        
+        $empleado1 = $collection->add($programador1);
+        
+        $this->assertEquals($programador1, $empleado1);
+        
+        $reference[1] = $programador1;
+        
+        // Creo un diseñador
+        $disenador2 = new Disenador();
+
+        $disenador2->setId(2)
+                   ->setNombre("Prueba")
+                   ->setApellido("Segunda")
+                   ->setEdad(34);
+        
+        $empleado2 = $collection->add($disenador2);
+        
+        $this->assertEquals($disenador2, $empleado2);
+        
+        $reference[2] = $disenador2;
+        
+        // Creo un programador
+        $programador3 = new Programador();
+
+        $programador3->setId(3)
+                     ->setNombre("Prueba")
+                     ->setApellido("Tercera")
+                     ->setEdad(36);
+        
+        $empleado3 = $collection->add($programador3);
+        
+        $this->assertEquals($programador3, $empleado3);
+        
+        $reference[3] = $programador3;
+        
+        // Creo un diseñador
+        $diseñador4 = new Disenador();
+        
+        $diseñador4->setId(4)
+                   ->setNombre("Prueba")
+                   ->setApellido("Cuarta")
+                   ->setEdad(36);
+        
+        $empleado4 = $collection->add($diseñador4);
+        
+        $this->assertEquals($diseñador4, $empleado4);
+        
+        $reference[4] = $diseñador4;
         
         $this->assertEquals($reference, $collection->getAll());
     }
