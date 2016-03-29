@@ -79,15 +79,17 @@ class EmpleadosCollection
      * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a agregar a la empresa
      * @throws \Exception
      * 
-     * @return void
+     * @return Gnemes\Summasolutions\examen\Empleado
      */
     public function add(Empleado $empleado)
     {
         if (isset($this->empleados[$empleado->getId()])) {
             throw new \Exception("ID Empleado ya existe en esta empresa");
-        } else {
-            $this->empleados[$empleado->getId()] = $empleado;
-        }        
+        }
+        
+        $this->empleados[$empleado->getId()] = $empleado;
+        
+        return $this->empleados[$empleado->getId()];
     }
     
     /**
@@ -96,15 +98,18 @@ class EmpleadosCollection
      * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a quitar
      * @throws \Exception
      * 
-     * @return void
+     * @return \Gnemes\Summasolutions\examen\Empleado
      */
     public function remove(Empleado $empleado)
     {
         if (!isset($this->empleados[$empleado->getId()])) {
             throw new \Exception("Empleado no existe en esta empresa");
-        } else {
-            unset($this->empleados[$empleado->getId()]);
         }
+        
+        $removed = $this->empleados[$empleado->getId()];
+        unset($this->empleados[$empleado->getId()]);
+        
+        return $removed;
     }
     
     /**
