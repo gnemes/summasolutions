@@ -55,19 +55,51 @@ class EmpleadosCollectionTest extends \PHPUnit_Framework_TestCase
         }
     }
     
-    public function testAddInvalidObjectToEmpleadosCollection()
+    public function testRemoveProgramerToEmpleadosCollection()
     {
         $collection = new EmpleadosCollection();
 
         // Creo un programador
-        $invalidObj = new \stdClass();
+        $programador = new Programador();
 
-        $this->setExpectedException('\InvalidArgumentException');
+        $programador->setId(1)
+                    ->setNombre("German")
+                    ->setApellido("Nemes");
         
         try {
-            $empleado = $collection->add($invalidObj);
+            $empleado = $collection->add($programador);
         } catch (Exception $ex) {
             echo $ex->getMessage()."\n";
         }  
+        
+        $this->assertEquals($programador, $empleado);
+        
+        try {
+            $removed = $collection->remove($programador);
+        } catch (Exception $ex) {
+            echo $ex->getMessage()."\n";
+        } 
+        
+        $this->assertEquals($programador, $removed);
+    }
+    
+    public function testRemoveNotExistingEmpleadoFromEmpleadosCollection()
+    {
+        $collection = new EmpleadosCollection();
+
+        // Creo un programador
+        $programador = new Programador();
+
+        $programador->setId(1)
+                    ->setNombre("German")
+                    ->setApellido("Nemes");
+        
+        $this->setExpectedException('Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionRemoveException');
+        
+        try {
+            $empleado = $collection->remove($programador);
+        } catch (Exception $ex) {
+            echo $ex->getMessage()."\n";
+        }
     }
 }

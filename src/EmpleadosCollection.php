@@ -29,6 +29,7 @@
 namespace Gnemes\Summasolutions\examen;
 
 use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionAddException;
+use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionRemoveException;
 
 /**
  * Empleado collection Class
@@ -79,7 +80,7 @@ class EmpleadosCollection
      * Agrega un empleado a la empresa
      * 
      * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a agregar a la empresa
-     * @throws \Exception
+     * @throws Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionAddException
      * 
      * @return Gnemes\Summasolutions\examen\Empleado
      */
@@ -98,14 +99,14 @@ class EmpleadosCollection
      * Quita un empleado de la empresa
      * 
      * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a quitar
-     * @throws \Exception
+     * @throws \Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionRemoveException
      * 
      * @return \Gnemes\Summasolutions\examen\Empleado
      */
     public function remove(Empleado $empleado)
     {
         if (!isset($this->empleados[$empleado->getId()])) {
-            throw new \Exception("Empleado no existe en esta empresa");
+            throw new EmpleadosCollectionRemoveException("Empleado no existe en esta empresa");
         }
         
         $removed = $this->empleados[$empleado->getId()];
