@@ -30,6 +30,7 @@ namespace Gnemes\Summasolutions\examen;
 
 use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionAddException;
 use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionRemoveException;
+use Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionEmpleadoNotExistsException;
 
 /**
  * Empleado collection Class
@@ -156,16 +157,16 @@ class EmpleadosCollection
      * Muestra los datos de un empleado
      * 
      * @param integer $id ID empleado
-     * @throws \Exception
+     * @throws \Gnemes\Summasolutions\examen\Exceptions\EmpleadosCollectionEmpleadoNotExistsException
      * 
      * @return void
      */
     public function getById($id)
     {
-       if (!isset($this->empleados[$id])) {
-            throw new \Exception("Empleado no existe en esta empresa");
-        } else {
-            $this->printEmpleado($this->empleados[$id]);
+        if (!isset($this->empleados[$id])) {
+            throw new EmpleadosCollectionEmpleadoNotExistsException("Empleado no existe en esta empresa");
         } 
+            
+        return $this->empleados[$id];
     }
 }

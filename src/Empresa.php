@@ -73,6 +73,32 @@ class Empresa
         $this->empleados = new EmpleadosCollection();
     }
     
+    /**
+     * Imprime los datos de un empleado
+     * Esta funcion deberia cambiarse para que haga lo que se desee
+     * 
+     * @param \Gnemes\Summasolutions\examen\Empleado $empleado Empleado a mostrar
+     * 
+     * @return void
+     */
+    private function printEmpleado(Empleado $empleado)
+    {
+        echo "Nombre: ".$empleado->getNombre().PHP_EOL;
+        echo "Apellido: ".$empleado->getApellido().PHP_EOL;
+        echo "Edad: ".$empleado->getEdad().PHP_EOL;
+
+        if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Programador')) {
+            echo "Area: Programador".PHP_EOL;
+            echo "Lenguaje: ".$empleado->getLenguaje().PHP_EOL;
+        } else if (is_a($empleado, 'Gnemes\\Summasolutions\\examen\\Disenador')) {
+            echo "Area: Diseñador".PHP_EOL;
+            echo "Tipo: ".$empleado->getTipo().PHP_EOL;
+        } else {
+            echo "Area: desconocida.".PHP_EOL;
+        }
+        echo "-----------------------------".PHP_EOL;        
+    }
+    
     /***************** GETTERS AND SETTERS ********************/
     
     /**
@@ -168,6 +194,8 @@ class Empresa
      */
     public function buscarEmpleado($id)
     {
-        $this->empleados->getById($id);
+        $empleado = $this->empleados->getById($id);
+        
+        $this->printEmpleado($empleado);
     }
 }
